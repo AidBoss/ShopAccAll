@@ -1,0 +1,88 @@
+.content_tonghop {
+   width: 90%;
+   padding: 5px;
+   margin: 20px 0;
+}
+
+.category_acc {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   flex-wrap: wrap;
+   justify-content: space-between;
+}
+
+.sla_honkai {
+   width: 32%;
+   background: #fff;
+   margin-bottom: 20px;
+   padding: 10px;
+   border-radius: 10px;
+   border: 1px solid #80808000;
+   box-shadow: 1px 2px 8px #6c757da1;
+   text-align: center;
+}
+
+.btn_category a {
+   padding: 5px;
+   text-align: center;
+   text-decoration: none;
+   width: 42%;
+   margin: 0 3px;
+   border-radius: 5px;
+}
+
+#quantity_acc {
+   margin: 10px;
+}
+
+.btn_category a:hover {
+   transition: 0.3s;
+   color: #fff;
+   transform: scale(1.2);
+}
+
+.btn_category {
+   padding: 10px;
+}
+
+.btn_update_cate {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+
+.hidden_avatar_update {
+   display: none;
+}
+
+#btn_change_avatar {
+   margin: 10px 35px;
+   text-align: center;
+}
+
+.update_image_category {
+   width: 200px;
+   height: 130px;
+}
+
+@media (max-width: 992px) {
+   .content_tonghop {
+      padding: 0;
+      margin: 0;
+      width: 95%;
+   }
+
+   .doanhThu {
+      width: 100%;
+   }
+
+   .category_acc {
+      flex-direction: column;
+   }
+
+   .sla_honkai {
+      width: 90%;
+   }
+}

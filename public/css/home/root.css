@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+* {
+
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: "Outfit", sans-serif;
+}
+
+:root {
+   --white-color: #fff;
+   --black-color: #000;
+   --text-color: #333;
+   --bg-header: #131921;
+}
+
+ul {
+   list-style: none;
+   padding: 0;
+}
+
+a {
+   text-decoration: none;
+   color: var(--text-color);
+}
+
+h1 {
+   margin: 0;
+}
+
+.lists_sd {
+   flex-grow: 0.5;
+}
+
+.container_section {
+   width: 100%;
+   min-height: 80vh;
+   display: flex;
+   justify-content: center;
+   background-color: #f4f4f5;
+   align-items: flex-start;
+   flex-wrap: wrap;
+
+}
+
+/* Toàn bộ thanh kéo */
+::-webkit-scrollbar {
+   width: 11px;
+   height: 12px;
+}
+
+/* Phần "thumb" của thanh kéo */
+::-webkit-scrollbar-thumb {
+   background: linear-gradient(to bottom right, #ff1493, #00bfff);
+   border-radius: 10px;
+   border: 3px solid #fff;
+}
+
+/* Khi hover vào phần "thumb" */
+::-webkit-scrollbar-thumb:hover {
+   background-color: #555;
+}
+
+/* Phần track của thanh kéo */
+::-webkit-scrollbar-track {
+   background: #f1f1f1;
+   border-radius: 10px;
+}
+
+/* Phần corner của thanh kéo ngang và dọc giao nhau */
+::-webkit-scrollbar-corner {
+   background: #f1f1f1;
+}

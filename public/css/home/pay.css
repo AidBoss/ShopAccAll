@@ -1,0 +1,85 @@
+.Payment {
+   margin: 40px 0;
+   box-shadow: 1px 2px 8px #6c757da1;
+   padding: 20px;
+   width: 80%;
+   background-color: #fff;
+   display: flex;
+   justify-content: center;
+   align-items: flex-start;
+   border-radius: 20px;
+}
+
+.method_payment {
+   width: 25%;
+}
+
+.content_payment {
+   width: 75%;
+}
+
+.qr_payment {
+   width: 200px;
+}
+
+.momo_pay {
+   display: flex;
+   border-radius: 20px;
+   border: 1px solid red;
+   padding: 20px;
+   justify-content: space-around;
+}
+
+.left_infor_pay p {
+   margin-top: 20px;
+   font-size: 19px;
+}
+
+.right_infor_pay {
+   margin-top: 40px;
+}
+
+.bank_pay {
+   border-radius: 20px;
+   border: 1px solid red;
+   padding: 20px;
+   justify-content: space-around;
+   display: none;
+}
+
+.tc_pay {
+   display: none;
+   /* display: flex; */
+   text-align: center;
+   border-radius: 20px;
+   border: 1px solid red;
+   padding: 20px;
+   justify-content: space-around;
+}
+
+.history_pay {
+   display: none;
+}
+
+.list_acc_bought {
+   border-collapse: collapse;
+   width: 100%;
+}
+
+.list_acc_bought tr th {
+   border: 1px solid rgb(245, 238, 238);
+   text-align: left;
+   padding: 10px;
+   text-decoration: none;
+   background: linear-gradient(to bottom right, #14dcff, #fff700);
+   -webkit-background-clip: text;
+   background-clip: text;
+   color: transparent;
+   border: none;
+}
+
+.list_acc_bought tr td {
+   border: 1px solid rgb(250, 249, 249);
+   text-align: left;
+   padding: 10px;
+}

@@ -1,0 +1,194 @@
+.container_login {
+   width: 100%;
+   min-height: 80vh;
+   display: flex;
+   justify-content: center;
+   background-color: #f4f4f5;
+   align-items: center;
+}
+
+/* css đăng nhập tài khoản */
+.form_login {
+   width: 40%;
+   height: auto;
+   display: block;
+}
+
+.form_login_action {
+
+   background-color: white;
+   padding: 20px;
+   border-radius: 20px;
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   border: 1px solid #80808000;
+   box-shadow: 1px 2px 8px #6c757da1;
+}
+
+#text_hader_SignUp {
+   color: brown;
+}
+
+.items-input {
+   margin: 10px 0;
+   padding: 20px;
+   height: 40px;
+   border-radius: 20px;
+   border: 1px solid #80808000;
+   box-shadow: 1px 2px 8px #6c757da1;
+}
+
+.agree_security {
+   margin-top: 10px;
+   display: flex;
+   align-items: baseline;
+   justify-content: flex-end;
+}
+
+#check_security {
+   margin: 4px;
+}
+
+.check_agree {
+   margin: 0 10px;
+}
+
+#content_security {
+   display: none;
+   padding: 10px;
+   border-radius: 10px;
+   border: 1px solid #80808000;
+   box-shadow: 1px 2px 8px #6c757da1;
+}
+
+.btn_login_register {
+   margin: auto;
+   color: orange;
+   border-radius: 7px;
+   background-color: #fff;
+   height: 30px;
+   width: 25%;
+   border: 1px solid #80808000;
+   box-shadow: 1px 2px 8px #6c757da1;
+}
+
+.btn_SignUp:hover {
+   background-color: rgb(30, 238, 30);
+   border: 2px solid white(255, 255, 0);
+   color: royalblue;
+}
+
+.items_footer_SignUp {
+   display: flex;
+   margin: 20px 0;
+   text-align: center;
+}
+
+#change_form_SignUp {
+   width: 100%;
+}
+
+/* css đăng ký tài khoản  */
+.form_register {
+   display: flex;
+   width: 40%;
+   height: auto;
+   margin: 20px 0;
+}
+
+.form_register_action {
+   background-color: white;
+   padding: 20px;
+   border-radius: 20px;
+   min-height: 50vh;
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   border: 1px solid #80808000;
+   box-shadow: 1px 2px 8px #6c757da1;
+}
+
+#change_form_login {
+   width: 100%;
+}
+
+/* css quen mat khau  */
+.form_forgetPass {
+   display: none;
+   width: 40%;
+}
+
+.forget_form {
+   background-color: white;
+   padding: 20px;
+   border-radius: 20px;
+   min-height: 50vh;
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   border: 1px solid #80808000;
+   box-shadow: 1px 2px 8px #6c757da1;
+}
+
+.input_box_forget {
+   width: 100%;
+   height: 100%;
+   position: relative;
+   margin: 10px 0;
+   font-size: 14px;
+}
+
+.input_box_forget input {
+   width: 100%;
+   height: 40px;
+   border: 1px solid white;
+   box-shadow: 1px 2px 8px #6c757da1;
+   border-radius: 20px;
+   font-size: 16px;
+   margin-top: 15px;
+}
+
+.input_box_forget label {
+   position: absolute;
+   top: 62%;
+   left: 10px;
+   padding-left: 10px;
+   transform: translateY(-50%);
+   transition: 0.3s;
+   color: rgb(199, 41, 243);
+}
+
+.input_box_forget input:focus~label {
+   top: 15px;
+   left: 10px;
+   background-color: white;
+   padding: 5px;
+}
+
+#goback_login {
+   text-align: end;
+   height: 25px;
+}
+
+.error-message {
+   color: red;
+   margin-bottom: 10px;
+}
+
+/* css màn hình nhỏ  */
+@media (max-width: 992px) {
+   .container_login {
+      flex-direction: column;
+   }
+
+   .form_login {
+      width: 80%;
+      margin: 20px 0;
+   }
+
+   .form_register {
+      width: 80%;
+   }
+
+}
