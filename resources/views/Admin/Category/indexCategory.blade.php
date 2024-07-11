@@ -19,13 +19,13 @@
                     </div>
                 </div>
                 <div class="category_acc">
-                    @if (isset($cate) && is_object($cate))
-                        @foreach ($cate as $cate)
+                    @if (isset($categories) && is_object($categories))
+                        @foreach ($categories as $cate)
                             <div class="sla_honkai">
                                 <h4 id="text-link-header">{{ $cate->game_type }}</h4>
                                 <img style="width: 100%" src="{{ asset($cate->image) }}" alt="" />
                                 <p id="quantity_acc"><i class="fa-solid fa-warehouse"></i> Số lượng acc:
-                                    {{ $cate->quantity }}</p>
+                                    {{ $cate->accounts_count }}</p>
                                 <div class="btn_category">
                                     <a id="btn_edit_category" href="{{ route('updateCate.doCate', $cate->id) }}"
                                         class="btn btn-outline-warning">Sửa</a>

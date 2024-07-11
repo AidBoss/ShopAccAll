@@ -13,6 +13,10 @@ class Categories extends Model
         'image',
         'quantity'
     ];
+    public function accounts()
+    {
+        return $this->hasMany(Accounts::class, 'account_type_id');
+    }
     public function characters()
     {
         return $this->hasMany(Characters::class);

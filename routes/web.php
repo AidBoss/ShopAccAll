@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Home\Auth\LoginController;
 use App\Http\Controllers\Home\Auth\RegisterController;
-use App\Http\Controllers\Home\Category\CategoryHomeController;
+use App\Http\Controllers\Home\Account\CategoryHomeController;
+use App\Http\Controllers\Home\Account\DetailAccontController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CharacterController;
@@ -17,7 +18,13 @@ use App\Http\Middleware\AuthenticateMiddleware;
 Route::get('', [HomeController::class, 'index'])->name('home.index');
 
 // router loại tài khoản
-Route::get('/category/{id}', [CategoryHomeController::class, 'Index'])->name('categoryHome.index');
+Route::prefix('/category')->group(function () {
+    Route::get('/{id}', [CategoryHomeController::class, 'Index'])->name('categoryHome.index');
+    Route::get('/search', [CategoryHomeController::class, 'search'])->name('search');
+    Route::get('detail-acc/acc-vip-{id}', [DetailAccontController::class, 'index'])->name('detailAccount.index');
+    Route::post('detail-acc/acc-vip-/{id}', [DetailAccontController::class, 'purchase'])->name('buyAcc.purchase');
+});
+
 
 // router trang đăng nhập
 Route::prefix('/login')->group(function () {

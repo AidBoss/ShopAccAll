@@ -25,7 +25,7 @@ class UserFactory extends Factory
             'email' => $this->faker->unique()->safeEmail,
             'phone' => $this->faker->unique()->numerify('##########'),
             'avatar' => $this->faker->imageUrl(640, 480, 'people', true, 'Faker'),
-            'role' => '1', // Ví dụ, '0' là user, '1' là admin
+            'role' => '1',
             'balance' => $this->faker->randomFloat(2, 0, 1000000),
         ];
     }

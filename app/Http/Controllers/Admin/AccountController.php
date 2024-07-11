@@ -28,7 +28,7 @@ class AccountController extends Controller
     }
     public function Index()
     {
-        $accounts = Accounts::with('characters', 'weapons', 'category')->get();
+        $accounts = Accounts::with('characters', 'weapons', 'category')->paginate(10);
         $title = 'Danh sách tài khoản';
         $categories = $this->cate->getAll();
         return view('Admin.Account.accountIndex', compact('title', 'accounts', 'categories'));
@@ -56,7 +56,7 @@ class AccountController extends Controller
     public function IndexUpdateAccount($id)
     {
         $account = $this->acc->searchId($id);
-        $category = Categories::all();
+        $categories = Categories::all();
         $characters = Characters::all();
         $weapons = Weapons::all();
         $title = 'Sửa thông tin acc';
@@ -68,7 +68,7 @@ class AccountController extends Controller
         $data = [
             'account' => $account,
             'title' => $title,
-            'category' => $category,
+            'categories' => $categories,
             'characters' => $characters,
             'weapons' => $weapons,
             'characterIds' => $characterIds,
@@ -78,29 +78,16 @@ class AccountController extends Controller
         return view('Admin.Account.updateAccount', $data);
     }
 
-    public function UpdateAccount(Request $request)
+    public function UpdateAccount(Request $request, $id)
     {
-        dd($request);
-        //     // Lấy ID của account cần cập nhật từ route parameters
-        //     $accountId = $request->route('id');
-
-        //     // Lấy các dữ liệu đã validate từ request
-        //     $validatedData = $request->validated();
-
-        //     // Cập nhật thông tin account trong cơ sở dữ liệu
-        //     $account = Accounts::findOrFail($accountId);
-        //     $account->description = $validatedData['description'];
-        //     $account->price = $validatedData['price'];
-        //     $account->server = $validatedData['server'];
-        //     $account->status = $validatedData['status'];
-        //     $account->account_type_id = $validatedData['account_type_id'];
-        //     // Cập nhật các thông tin khác tùy theo logic của bạn
-
-        //     // Lưu lại vào cơ sở dữ liệu
-        //     $account->save();
-
-        //     // Redirect về trang danh sách account hoặc trang cần thiết khác sau khi cập nhật thành công
-        //     return redirect()->route('account.index')->with('success', 'Cập nhật thông tin account thành công.');
+        $acc = $this->acc->UpdateAccount($request, $id);
+        if ($acc !== null) {
+            toastr()->success('Bạn đã sửa thành công');
+            return redirect()->back();
+        } else {
+            toastr()->error('Sửa thất bại');
+            return redirect()->back();
+        }
     }
 
     public function DeleteAccount($id)

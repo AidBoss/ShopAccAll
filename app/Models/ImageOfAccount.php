@@ -9,6 +9,8 @@ class ImageOfAccount extends Model
 {
     use HasFactory;
     protected $table = 'images_of_accounts';
+    // khóa ngoại
+    protected $foreignKey = 'account_id';
     protected $fillable = [
         'account_id',
         'path',
@@ -16,6 +18,6 @@ class ImageOfAccount extends Model
     // mỗi ảnh thuộc về một tài khoản 
     public function account()
     {
-        return $this->belongsTo(Accounts::class);
+        return $this->belongsTo(Accounts::class, 'account_id');
     }
 }

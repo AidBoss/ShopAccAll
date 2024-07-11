@@ -104,7 +104,7 @@
                 </table>
             </div>
             <div class="phantrang">
-                {{-- {{ $acc->appends(request()->input())->links('pagination::bootstrap-4') }} --}}
+                {{ $accounts->appends(request()->input())->links('pagination::bootstrap-4') }}
             </div>
         </section>
         <!-- kết thúc Phần thân trang web -->

@@ -79,3 +79,10 @@
    overflow: hidden;
    text-overflow: ellipsis;
 }
+
+.update_infor_acc {
+   margin: 20px 0;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+}

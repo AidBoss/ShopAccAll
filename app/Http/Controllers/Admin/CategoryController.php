@@ -17,10 +17,9 @@ class CategoryController extends Controller
     }
     public function index()
     {
-
         $title = 'Loại tài khoản';
-        $cate = Categories::all();
-        return view('Admin.Category.indexCategory', compact('title', 'cate'));
+        $categories = Categories::withCount('accounts')->get();
+        return view('Admin.Category.indexCategory', compact('title', 'categories'));
     }
     public function indexAdd()
     {

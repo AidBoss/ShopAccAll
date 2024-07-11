@@ -24,4 +24,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <!-- link css -->
     <link rel="stylesheet" href="{{ asset('css/fontawesome/css/all.min.css') }}" />
+    {{-- link thư viện multi-select --}}
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/css/multi-select-tag.css">
 </head>

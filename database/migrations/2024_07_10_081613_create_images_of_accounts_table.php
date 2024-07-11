@@ -13,11 +13,9 @@ return new class extends Migration
     {
         Schema::create('images_of_accounts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('account_id'); // Trường khóa ngoại
+            $table->foreignId('account_id')->constrained('accounts')->onDelete('cascade');
             $table->string('path'); // Đường dẫn tới file ảnh
             $table->timestamps();
-            // Thiết lập khoá ngoại
-            $table->foreign('account_id')->references('id')->on('accounts')->onDelete('cascade');
         });
     }
 

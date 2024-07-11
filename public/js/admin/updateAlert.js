@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 Swal.fire("Đã lưu!", "", "success");
                 setTimeout(() => {
                     btnUpdate.closest("form").submit(); // Gửi form sau khi xác nhận
-                }, 2000);
+                }, 1000);
             } else if (result.isDenied) {
                 Swal.fire("Những thay đổi không được lưu!", "", "info");
             }

@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Accounts extends Model
 {
+
     use HasFactory;
     // Khai báo các thuộc tính có thể gán giá trị hàng loạt
+    protected $table = 'accounts'; // Tên bảng trong cơ sở dữ liệu
     protected $fillable = [
         'description',
         'price',
@@ -17,10 +19,17 @@ class Accounts extends Model
         'status',
         'account_type_id',
     ];
-
+    // 1 acc thuộc về 1 loại tài khoản
+    public function category()
+    {
+        return $this->belongsTo(Categories::class, 'account_type_id');
+    }
+    // mỗi một acc có nhiều ảnh
+    public function imagesOfAccount()
+    {
+        return $this->hasMany(ImageOfAccount::class, 'account_id');
+    }
     // Định nghĩa các mối quan hệ
-    // Một Account có nhiều Character
-    // Một Account có nhiều Character
     public function characters()
     {
         return $this->belongsToMany(Characters::class, 'account_character', 'account_id', 'character_id');
@@ -37,16 +46,11 @@ class Accounts extends Model
     {
         return $this->belongsTo(Discounts::class);
     }
-
+    // m
+    public function purchaseHistory()
+    {
+        return $this->belongsTo(PurchaseHistory::class, 'account_id');
+    }
     // Một Account thuộc về một Category
-    public function category()
-    {
-        return $this->belongsTo(Categories::class, 'account_type_id');
-    }
 
-    // mỗi một acc có nhiều ảnh
-    public function imagesOfAccount()
-    {
-        return $this->hasMany(ImageOfAccount::class);
-    }
 }

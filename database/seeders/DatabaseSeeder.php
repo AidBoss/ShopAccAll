@@ -18,15 +18,27 @@ class DatabaseSeeder extends Seeder
         // $this->call([
         //     UserSeeder::class,
         // ]);
-        // DB::table('users')->insert([
-        //     'username' => 'admin',
-        //     'account_name' => 'admin',
-        //     'password' => Hash::make('impob'),
-        //     'email' => 'admin@gmail.com',
-        //     'phone' => '0343564123',
-        //     'role' => '0',
-        //     'balance' => '5000000',
-        // ]);
+        $totalAccounts = 100;
+        // Sử dụng vòng lặp để tạo các tài khoản
+        for ($i = 1; $i <= $totalAccounts; $i++) {
+            $cateId = [1, 2, 3, 4];
+            $serves = ['HongKong', 'Asian', 'Eu', 'Us'];
+            $count = 1; // Biến đếm
+            foreach ($cateId as $id) {
+                foreach ($serves as $serve) {
+                    DB::table('accounts')->insert([
+                        'description' => 'Acc vip ' . $count,
+                        'price' => '120000',
+                        'server' => $serve,
+                        'ar' => '30',
+                        'status' => $count % 2 == 0 ? '2' : '1',
+                        'account_type_id' => $id,
+                    ]);
+                    $count++;
+                }
+            }
+        }
+
         // $cate = ['Genshin Impact', 'Honkai Star Rail', 'Honkai Impact 3',  'TFT', 'Liên Quân Mobile'];
         // foreach ($cate as $gameType) {
         //     DB::table('categories')->insert([

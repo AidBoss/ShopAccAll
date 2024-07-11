@@ -1,7 +1,54 @@
-.img_detail_acc {
+/* .img_detail_acc {
    width: 70%;
    margin: 20px;
+} */
+
+.slider-container {
+   width: 70%;
+   margin: 20px;
+   overflow: hidden;
+   position: relative;
 }
+
+.slider-container i {
+   font-size: 30px;
+}
+
+.slider {
+   display: flex;
+   transition: transform 0.5s ease;
+}
+
+.slide {
+   flex: 0 0 auto;
+   width: 100%;
+}
+
+.slide img {
+   width: 100%;
+   height: auto;
+}
+
+.prev-btn,
+.next-btn {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   background-color: #33333300;
+   color: #fff;
+   border: none;
+   padding: 10px;
+   cursor: pointer;
+}
+
+.prev-btn {
+   left: 10px;
+}
+
+.next-btn {
+   right: 10px;
+}
+
 
 .image_nik {
    width: 100%;
