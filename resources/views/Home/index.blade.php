@@ -58,7 +58,7 @@
                                         <img src="{{ $user->avatar }}" alt="" />
                                     </div>
                                     <div class="item-userName">{{ $user->username }}</div>
-                                    <div class="item-title">Nạp: {{ (int) $user->balance }} đ</div>
+                                    <div class="item-title">Nạp: {{ number_format($user->balance) }} đ</div>
                                 </div>
                                 @php
                                     $n++;

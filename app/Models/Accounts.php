@@ -16,9 +16,15 @@ class Accounts extends Model
         'price',
         'server',
         'ar',
+        'nameAccount',
+        'passAccount',
         'status',
         'account_type_id',
     ];
+    public function purchaseHistory()
+    {
+        return $this->belongsTo(PurchaseHistory::class, 'account_id');
+    }
     // 1 acc thuộc về 1 loại tài khoản
     public function category()
     {
@@ -47,10 +53,7 @@ class Accounts extends Model
         return $this->belongsTo(Discounts::class);
     }
     // m
-    public function purchaseHistory()
-    {
-        return $this->belongsTo(PurchaseHistory::class, 'account_id');
-    }
+
     // Một Account thuộc về một Category
 
 }

@@ -66,7 +66,8 @@
                                         <div class="half_actions">
                                             <p id="name_acc">{{ Auth::user()->username }}</p>
                                             <p id="name_acc">Số tiền: <span
-                                                    style="color: red">{{ Auth::user()->balance }}đ</span></p>
+                                                    style="color: red">{{ number_format(Auth::user()->balance) }}đ</span>
+                                            </p>
                                         </div>
                                         <div class="bottom_actions">
                                             <i id="text-link-header" class="fa-solid fa-chevron-down"></i>
@@ -76,13 +77,15 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="user_infor_login" style="margin-top: 10px;">
                                 <li>
-                                    <a class="dropdown-item" id="text-link-header">
+                                    <a class="dropdown-item" href="{{ route('rechargeHistories', Auth::id()) }}"
+                                        id="text-link-header">
                                         <img width="25" height="25"
                                             src="https://img.icons8.com/office/16/money--v1.png" alt="money--v1" /> Lịch
                                         sử nạp</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" id="text-link-header">
+                                    <a class="dropdown-item" href="{{ route('purchaseHistory.index', Auth::id()) }}"
+                                        id="text-link-header">
                                         <img width="25" height="25"
                                             src="https://img.icons8.com/arcade/64/activity-history.png"
                                             alt="activity-history" /> Lịch sử mua</a>

@@ -45,11 +45,11 @@
                                 </div>
                                 <div class="items_detail_acc">
                                     <p>Giá bán: </p>
-                                    <p id="infor_acc_buy">{{ (int) $account->price }}</p>
+                                    <p id="infor_acc_buy">{{ number_format($account->price) }}</p>
                                 </div>
                                 <div class="items_detail_acc">
                                     <p>Tình trạng: </p>
-                                    <p id="infor_acc_buy">{{ $account->status }}</p>
+                                    <p id="infor_acc_buy">{{ $account->status == '1' ? 'Chưa bán' : 'Đã bán' }}</p>
                                 </div>
                                 <button id="btn_buy_now" type="submit">Mua ngay</button>
                             </div>

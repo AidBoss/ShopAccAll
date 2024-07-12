@@ -69,7 +69,7 @@
                                             {{ $recharge->bank_name }}
                                         </td>
                                         <td class="HTextTooLong">{{ $recharge->content_recharge }}</td>
-                                        <td class="HTextTooLong">{{ $recharge->amount }}</td>
+                                        <td class="HTextTooLong">{{ number_format($recharge->amount) }}</td>
                                         <td class="HTextTooLong">{{ $recharge->user->username }}</td>
                                         <td>
                                             <a href="{{ route('rechargeUpdate.index', $recharge->id) }}"

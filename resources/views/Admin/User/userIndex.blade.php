@@ -85,7 +85,7 @@
                                     <td>{{ $user->phone }}</td>
                                     <td>{{ $user->role }}</td>
                                     <td>
-                                        {{ (int) $user->balance }}
+                                        {{ number_format($user->balance) }}
                                         <span style="color:red">đ</span>
                                     </td>
                                     <td id="formluachon">

@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use App\Models\Accounts;
+use App\Models\PurchaseHistory;
 use App\Models\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
@@ -14,7 +15,7 @@ use Illuminate\Queue\SerializesModels;
 
 class PurchaseSuccessful
 {
-    use Dispatchable, SerializesModels;
+    use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $user;
     public $account;

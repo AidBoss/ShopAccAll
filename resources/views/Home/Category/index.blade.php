@@ -121,7 +121,7 @@
                                             </div>
                                             <div class="price_acc">
                                                 <p>Giá bán</p>
-                                                <p id="infor_acc">{{ (int) $acc->price }}</p>
+                                                <p id="infor_acc">{{ number_format($acc->price) }}</p>
                                             </div>
                                         </div>
                                         <hr />

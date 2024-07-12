@@ -18,6 +18,8 @@ return new class extends Migration
             $table->decimal('price', 10, 2);
             $table->string('server', 20);
             $table->string('ar', 2);
+            $table->string('nameAccount', 100);
+            $table->string('passAccount', 100);
             $table->string('status', 1);
             $table->foreignId('account_type_id')->constrained('categories')->onDelete('cascade');
             $table->timestamps();

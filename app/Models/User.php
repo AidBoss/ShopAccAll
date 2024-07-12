@@ -34,9 +34,9 @@ class User extends Authenticatable
         return $this->hasMany(RechargeHistory::class, 'user_id');
     }
     // có nhiều lịch sử mua hàng
-    public function pucrchaseHistory()
+    public function purchaseHistories()
     {
-        return $this->hasMany(PurchaseHistory::class, 'user_id');
+        return $this->hasMany(PurchaseHistory::class);
     }
     /**public function account()
     {

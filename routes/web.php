@@ -1,22 +1,32 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// Router Trang user 
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Home\Auth\LoginController;
 use App\Http\Controllers\Home\Auth\RegisterController;
 use App\Http\Controllers\Home\Account\CategoryHomeController;
 use App\Http\Controllers\Home\Account\DetailAccontController;
+use App\Http\Controllers\Home\User\PurchaseHistoryUser;
+use App\Http\Controllers\Home\User\RechargeHistory;
+// Router Trang admin 
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CharacterController;
 use App\Http\Controllers\Admin\WeaponController;
 use App\Http\Controllers\Admin\RechargeHistoryController;
 use App\Http\Controllers\Admin\AccountController;
+// middleware lọc người dùng
 use App\Http\Middleware\AuthenticateMiddleware;
+use App\Http\Middleware\AuthenUser;
 
 //router trang chủ 
 Route::get('', [HomeController::class, 'index'])->name('home.index');
 
+Route::middleware(AuthenUser::class)->prefix('/user')->group(function () {
+    Route::get('purchase-history/{id}', [PurchaseHistoryUser::class, 'index'])->name('purchaseHistory.index');
+    Route::get('recharge-history/{id}', [RechargeHistory::class, 'index'])->name('rechargeHistories');
+});
 // router loại tài khoản
 Route::prefix('/category')->group(function () {
     Route::get('/{id}', [CategoryHomeController::class, 'Index'])->name('categoryHome.index');
