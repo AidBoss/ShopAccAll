@@ -14,22 +14,34 @@
             <div class="logo_login">
                 <img src="{{ asset('img/logo/logo-whitew.png') }}" alt="" />
             </div>
-            <!-- quên mật khẩu  -->
+            <!-- đổi mật khẩu  -->
             <div class="form_forgetPass" id="form_forgetPass">
-                <form action="{{ route('forgetPass.doForgetPass') }}" method="post" class="forget_form">
+                <form action="{{ route('resetPass.doResetPass', $id) }}" method="post" class="forget_form">
                     @csrf
-                    <h5 id="text-link-header">Quên mật khẩu</h5>
-                    <h6>Vui lòng nhập email và tên tài khoản bạn đã đăng ký</h6>
+                    <h5 id="text-link-header">Đổi mật khẩu</h5>
+                    <h6>Vui lòng nhập đúng mật khẩu cũ!</h6>
                     <div class="input_box_forget">
-                        <input type="text" value="{{ old('userName') }}" name="userName" id="qmk_userName"
-                            required />
-                        <label for="qmk_userName">Tên tài khoản</label>
+                        <input type="password" name="passOld" id="passOld" required />
+                        <label for="passOld">Mật khẩu cũ</label>
                     </div>
+                    @if ($errors->has('password'))
+                        <span class="error-message">* {{ $errors->first('password') }}</span>
+                    @endif
                     <div class="input_box_forget">
-                        <input type="email" value="{{ old('nameEmail') }}" name="nameEmail" id="qmk_email" required />
-                        <label for="qmk_email">Email của bạn </label>
+                        <input type="password" name="passNew" id="passNew" required />
+                        <label for="passNew">Mật khẩu mới</label>
                     </div>
-                    <a href="{{ route('login.index') }}">
+                    @if ($errors->has('passNew'))
+                        <span class="error-message">* {{ $errors->first('passNew') }}</span>
+                    @endif
+                    <div class="input_box_forget">
+                        <input type="password" name="passNew_confirmation" id="passNew_confirmation" required />
+                        <label for="passNew_confirmation">Nhập lại mật khẩu mới</label>
+                    </div>
+                    @if ($errors->has('passNew'))
+                        <span class="error-message">* {{ $errors->first('passNew') }}</span>
+                    @endif
+                    <a href="{{ route('home.index') }}">
                         <span id="goback_login">
                             <p id="text-link-header">Go back login!</p>
                         </span></a>

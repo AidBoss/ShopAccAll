@@ -14,13 +14,12 @@ class AuthenUser
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next)
     {
         if (Auth::check()) {
             return $next($request);
-        } else {
-            toastr()->error('Bạn chưa đăng nhập vui lòng đăng nhập');
-            return redirect()->route('login.index');
         }
+        toastr()->error('Bạn chưa đăng nhập. Vui lòng đăng nhập để tiếp tục.');
+        return redirect()->route('login.index');
     }
 }

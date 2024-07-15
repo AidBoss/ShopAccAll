@@ -91,7 +91,8 @@
                                             alt="activity-history" /> Lịch sử mua</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" id="text-link-header">
+                                    <a class="dropdown-item" href="{{ route('resetPass.index', Auth::id()) }}"
+                                        id="text-link-header">
                                         <img width="25" height="25"
                                             src="https://img.icons8.com/color/48/change.png" alt="change" /> Đổi mật
                                         khẩu</a>

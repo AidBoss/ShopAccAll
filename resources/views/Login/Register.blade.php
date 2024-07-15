@@ -49,32 +49,11 @@
                     </button>
                     <div class="items_footer_SignUp">
                         <span id="change_form_login">
-                            <a id="text-link-header"><i class="fa-solid fa-rotate-left"></i> You have a account</a>
+                            <a href="{{ route('login.index') }}" id="text-link-header"><i
+                                    class="fa-solid fa-rotate-left"></i> You have a account</a>
                         </span>
-                        <a href="index.html" id="text-link-header"><i class="fa-solid fa-house"></i> Go back home</a>
-                    </div>
-                </form>
-            </div>
-            <!-- quên mật khẩu  -->
-            <div class="form_forgetPass" id="form_forgetPass">
-                <form action="" method="post" class="forget_form">
-                    <h5 id="text-link-header">Quên mật khẩu</h5>
-                    <h6>Vui lòng nhập email và tên tài khoản bạn đã đăng ký</h6>
-                    <div class="input_box_forget">
-                        <input type="text" id="qmk_userName" />
-                        <label for="qmk_userName">Tên tài khoản</label>
-                    </div>
-                    <div class="input_box_forget">
-                        <input type="email" name="" id="qmk_email" />
-                        <label for="qmk_email">Email của bạn </label>
-                    </div>
-                    <span id="goback_login">
-                        <p id="text-link-header">Go back login!</p>
-                    </span>
-                    <div class="input_box_forget">
-                        <button type="submit" class="btn_login_register" style="margin: 0 37.5%">
-                            Gửi
-                        </button>
+                        <a href="{{ route('home.index') }}" id="text-link-header"><i class="fa-solid fa-house"></i> Go
+                            back home</a>
                     </div>
                 </form>
             </div>

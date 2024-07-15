@@ -5,10 +5,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Home\Auth\LoginController;
 use App\Http\Controllers\Home\Auth\RegisterController;
+use App\Http\Controllers\Home\Auth\ResetPassController;
 use App\Http\Controllers\Home\Account\CategoryHomeController;
 use App\Http\Controllers\Home\Account\DetailAccontController;
 use App\Http\Controllers\Home\User\PurchaseHistoryUser;
 use App\Http\Controllers\Home\User\RechargeHistory;
+use App\Http\Controllers\Home\Auth\ForgetPassController;
 // Router Trang admin 
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -27,6 +29,7 @@ Route::middleware(AuthenUser::class)->prefix('/user')->group(function () {
     Route::get('purchase-history/{id}', [PurchaseHistoryUser::class, 'index'])->name('purchaseHistory.index');
     Route::get('recharge-history/{id}', [RechargeHistory::class, 'index'])->name('rechargeHistories');
 });
+
 // router loại tài khoản
 Route::prefix('/category')->group(function () {
     Route::get('/{id}', [CategoryHomeController::class, 'Index'])->name('categoryHome.index');
@@ -51,6 +54,17 @@ Route::prefix('/register')->group(function () {
 // router trang đăng xuất
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
+//route trang quên mật khẩu
+Route::prefix('/forget-pass')->group(function () {
+    Route::get('', [ForgetPassController::class, 'index'])->name('forgetPass.index');
+    Route::post('', [ForgetPassController::class, 'forgetPass'])->name('forgetPass.doForgetPass');
+});
+
+//route trang đổi mật khẩu
+Route::middleware(AuthenUser::class)->prefix('/reset-pass')->group(function () {
+    Route::get('/{id}', [ResetPassController::class, 'index'])->name('resetPass.index');
+    Route::post('/{id}', [ResetPassController::class, 'resetPass'])->name('resetPass.doResetPass');
+});
 
 // router các trang quản trị
 Route::middleware(AuthenticateMiddleware::class)->prefix('/admin')->group(function () {

@@ -31,15 +31,15 @@
                         <span class="error-message">* {{ $errors->first('password') }}</span>
                     @endif
                     <div class="agree_security">
-                        <span id="text_security">
+                        <a href="{{ route('forgetPass.index') }}" id="text_security">
                             <p id="text-link-header">Quên mật khẩu ?</p>
-                        </span>
+                        </a>
                     </div>
                     <button class="btn_login_register" id="btn_SignIn" type="submit">
                         Đăng nhập
                     </button>
                     <div class="items_footer_SignUp">
-                        <a href="index.html" id="text-link-header">
+                        <a href="{{ route('home.index') }}" id="text-link-header">
                             <i class="fa-solid fa-house"></i> Trở về trang chủ
                         </a>
                         <span id="change_form_SignUp">
@@ -50,30 +50,6 @@
                     </div>
                 </form>
             </div>
-
-            <!-- quên mật khẩu  -->
-            {{-- <div class="form_forgetPass" id="form_forgetPass">
-                <form action="" method="post" class="forget_form">
-                    <h5 id="text-link-header">Quên mật khẩu</h5>
-                    <h6>Vui lòng nhập email và tên tài khoản bạn đã đăng ký</h6>
-                    <div class="input_box_forget">
-                        <input type="text" id="qmk_userName" />
-                        <label for="qmk_userName">Tên tài khoản</label>
-                    </div>
-                    <div class="input_box_forget">
-                        <input type="email" name="" id="qmk_email" />
-                        <label for="qmk_email">Email của bạn </label>
-                    </div>
-                    <span id="goback_login">
-                        <p id="text-link-header">Go back login!</p>
-                    </span>
-                    <div class="input_box_forget">
-                        <button type="submit" class="btn_login_register" style="margin: 0 37.5%">
-                            Gửi
-                        </button>
-                    </div>
-                </form>
-            </div> --}}
         </section>
         <!-- kết thúc Phần thân trang web -->
         @include('Layout.clineLT.footer')

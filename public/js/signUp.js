@@ -1,3 +1,22 @@
+document.addEventListener("DOMContentLoaded", function () {
+    var inputs = document.querySelectorAll(".input_box_forget input");
+
+    inputs.forEach(function (input) {
+        input.addEventListener("input", function () {
+            if (input.value !== "") {
+                input.classList.add("has-value");
+            } else {
+                input.classList.remove("has-value");
+            }
+        });
+
+        // Ensure the label is correctly placed on page load if there's a value
+        if (input.value !== "") {
+            input.classList.add("has-value");
+        }
+    });
+});
+
 // const check_st = document.getElementById("check_security");
 // const text_st = document.getElementById("text_security");
 // const content_st = document.getElementById("content_security");
