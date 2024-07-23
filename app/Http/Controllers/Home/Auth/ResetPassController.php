@@ -37,7 +37,7 @@ class ResetPassController extends Controller
             throw ValidationException::withMessages(['password' => 'Mật khẩu mới không được trùng với mật khẩu cũ']);
         }
         // Cập nhật mật khẩu mới cho người dùng
-        $user->password = Hash::make($passNew);
+        $user->password = bcrypt($passNew);
         $user->save();
         toastr()->success('Bạn đã đổi mật khẩu thành công');
         // Xóa tất cả token của người dùng để đăng xuất khỏi các thiết bị khác

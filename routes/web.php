@@ -10,6 +10,7 @@ use App\Http\Controllers\Home\Account\CategoryHomeController;
 use App\Http\Controllers\Home\Account\DetailAccontController;
 use App\Http\Controllers\Home\User\PurchaseHistoryUser;
 use App\Http\Controllers\Home\User\RechargeHistory;
+use App\Http\Controllers\Home\User\RechargeMoney;
 use App\Http\Controllers\Home\Auth\ForgetPassController;
 // Router Trang admin 
 use App\Http\Controllers\Admin\UsersController;
@@ -24,10 +25,13 @@ use App\Http\Middleware\AuthenUser;
 
 //router trang chủ 
 Route::get('', [HomeController::class, 'index'])->name('home.index');
-
+// router nạp lịch sử mua
 Route::middleware(AuthenUser::class)->prefix('/user')->group(function () {
     Route::get('purchase-history/{id}', [PurchaseHistoryUser::class, 'index'])->name('purchaseHistory.index');
     Route::get('recharge-history/{id}', [RechargeHistory::class, 'index'])->name('rechargeHistories');
+    Route::get('recharge-money/{id}', [RechargeMoney::class, 'index'])->name('rechargeMoney.index');
+    Route::post('recharge-money/{id}', [RechargeMoney::class, 'RechargeMomo'])->name('payAuth');
+    Route::get('/vnpay-return',  [RechargeMoney::class, 'handleVnpayReturn'])->name('vnpay.return');
 });
 
 // router loại tài khoản

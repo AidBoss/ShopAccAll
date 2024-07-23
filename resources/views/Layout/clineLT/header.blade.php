@@ -21,38 +21,50 @@
                             href="{{ route('home.index') }}">Shop Acc
                             Aidboss</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" id="text-link-header" aria-current="page" href="#">Liên hệ</a>
-                    </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link active dropdown-toggle" id="navbarDropdown" aria-current="page"
-                            role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#"
-                            style="
-                                   background: linear-gradient(
+                        <a class="nav-link active dropdown-toggle"role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" id="navbarDropdown" aria-current="page" href="#"
+                            style="background: linear-gradient(
                                        to bottom right,
                                        #ff1493,
                                        #00bfff
                                    );
                                    -webkit-background-clip: text;
                                    background-clip: text;
-                                   color: transparent;
-                               ">Nạp
-                            tiền</a>
+                                   color: transparent;">Liên
+                            hệ</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li>
-                                <a class="dropdown-item" id="text-link-header">Nạp qua ngân hàng</a>
+                                <a class="dropdown-item"
+                                    href="https://www.messenger.com/login.php?next=https%3A%2F%2Fwww.messenger.com%2Ft%2F100039476863072%2F"
+                                    id="text-link-header">Messenger</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" id="text-link-header">Nạp qua Momo</a>
+                                <a class="dropdown-item" href="https://www.facebook.com/profile.php?id=100039476863072"
+                                    id="text-link-header">Facebook</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="https://zalo.me/0343564138"
+                                    id="text-link-header">Zalo</a>
                             </li>
                         </ul>
+                    </li>
+                    <li class="nav-item ">
+                        @if (Auth::check())
+                            <a class="nav-link active" href="{{ route('rechargeMoney.index', Auth::id()) }}"
+                                id="text-link-header" aria-current="page" href="#">Nạp
+                                tiền</a>
+                        @else
+                            <a class="nav-link active" href="{{ route('login.index') }}" id="text-link-header"
+                                aria-current="page" href="#">Nạp
+                                tiền</a>
+                        @endif
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" id="text-link-header" aria-current="page" href="#">Uy tín</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" id="text-link-header" aria-current="page"
-                            href="historyBought.html">Bản tin shop</a>
+                        <a class="nav-link active" id="text-link-header" aria-current="page">Bản tin shop</a>
                     </li>
                 </ul>
                 <div class="login-header d-flex flex-lg-row justify-content-center align-items-center gap-3">
@@ -80,7 +92,8 @@
                                     <a class="dropdown-item" href="{{ route('rechargeHistories', Auth::id()) }}"
                                         id="text-link-header">
                                         <img width="25" height="25"
-                                            src="https://img.icons8.com/office/16/money--v1.png" alt="money--v1" /> Lịch
+                                            src="https://img.icons8.com/office/16/money--v1.png" alt="money--v1" />
+                                        Lịch
                                         sử nạp</a>
                                 </li>
                                 <li>

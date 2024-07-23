@@ -66,3 +66,8 @@ hienTT.addEventListener("click", (evt) => {
         dem = 0;
     }
 });
+
+function showLoginAlert(event) {
+    event.preventDefault();
+    toastr.warning("Bạn cần đăng nhập để sử dụng chức năng này.");
+}

@@ -10,27 +10,34 @@ const form_history = document.getElementById("history_pay");
 
 let index = 0;
 btn_momo.onclick = function () {
-  form_momo.style.display = "flex";
-  form_bank.style.display = "none";
-  form_tc.style.display = "none";
-  form_history.style.display = "none";
+    form_momo.style.display = "flex";
+    form_bank.style.display = "none";
+    form_tc.style.display = "none";
+    form_history.style.display = "none";
 };
 btn_bank.onclick = function () {
-  form_momo.style.display = "none";
-  form_bank.style.display = "flex";
-  form_tc.style.display = "none";
-  form_history.style.display = "none";
+    form_momo.style.display = "none";
+    form_bank.style.display = "flex";
+    form_tc.style.display = "none";
+    form_history.style.display = "none";
 };
 
 btn_tc.onclick = function () {
-  form_momo.style.display = "none";
-  form_bank.style.display = "none";
-  form_tc.style.display = "flex";
-  form_history.style.display = "none";
+    form_momo.style.display = "none";
+    form_bank.style.display = "none";
+    form_tc.style.display = "flex";
+    form_history.style.display = "none";
 };
-btn_history.onclick = function () {
-  form_momo.style.display = "none";
-  form_bank.style.display = "none";
-  form_tc.style.display = "none";
-  form_history.style.display = "block";
-};
+// btn_history.onclick = function () {
+//     form_momo.style.display = "none";
+//     form_bank.style.display = "none";
+//     form_tc.style.display = "none";
+//     form_history.style.display = "block";
+// };
+
+const selectSpace = document.getElementById("selectSpace");
+const stn = document.getElementById("stn");
+stn.addEventListener("change", function (e) {
+    selectSpace.value = stn.value;
+    console.log(selectSpace.value);
+});
