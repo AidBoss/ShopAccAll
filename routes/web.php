@@ -30,8 +30,10 @@ Route::middleware(AuthenUser::class)->prefix('/user')->group(function () {
     Route::get('purchase-history/{id}', [PurchaseHistoryUser::class, 'index'])->name('purchaseHistory.index');
     Route::get('recharge-history/{id}', [RechargeHistory::class, 'index'])->name('rechargeHistories');
     Route::get('recharge-money/{id}', [RechargeMoney::class, 'index'])->name('rechargeMoney.index');
-    Route::post('recharge-money/{id}', [RechargeMoney::class, 'RechargeMomo'])->name('payAuth');
+    Route::post('recharge-money/{id}', [RechargeMoney::class, 'RechargeVnPay'])->name('payAuth');
     Route::get('/vnpay-return',  [RechargeMoney::class, 'handleVnpayReturn'])->name('vnpay.return');
+    Route::post('payment-momo', [RechargeMoney::class, 'RechargeMomo'])->name('momoPay');
+    Route::get('/momo-return',  [RechargeMoney::class, 'handleMomoReturn'])->name('momo.return');
 });
 
 // router loại tài khoản

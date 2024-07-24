@@ -15,7 +15,7 @@
                 <div class="method_payment">
                     <h4 id="text-link-header">Chọn giao dịch</h4>
                     <p id="method_momo">VnPay</p>
-                    <p id="method_bank">Bank</p>
+                    <p id="method_bank">Momo</p>
                     <p id="method_tc">Thẻ cào</p>
                     {{-- <p id="method_history">Lịch sử nạp</p> --}}
                 </div>
@@ -24,16 +24,14 @@
                         <form action="{{ route('payAuth', $user->id) }}" method="post">
                             @csrf
                             <div class="left_infor_pay">
-                                <h4 id="text-link-header">Thanh toán bằng VnPay</h4>
+                                <h4 id="text-link-header">Chuyển khoản bằng VnPay</h4>
                                 <p>Thông tin tài khoản: DINH DUC ANH</p>
                                 <input name="ctk" type="hidden" value="DINH DUC ANH">
-                                {{-- <p>Số tài khoản: <span>0343564138</span></p>
-                                <input name="stk" type="hidden" value="0343564138"> --}}
                                 <p>Nội dung chuyển khoản: <span style="color: red">Nap_{{ $user->username }}</span></p>
                                 <input name="ndck" type="hidden" value="Nap_{{ $user->username }}">
                                 <p>Chọn mệnh giá nạp</p>
-                                <select class="form-select" name="st" id="stn">
-                                    <option value="10000">10.000</option>
+                                <select class="form-select stn" name="st">
+                                    <option selected value="10000">10.000</option>
                                     <option value="20000">20.000</option>
                                     <option value="40000">40.000</option>
                                     <option value="80000">80.000</option>
@@ -45,25 +43,45 @@
                                     <option value="5000000">5.000.000</option>
                                     <option value="10000000">10.000.000</option>
                                 </select>
-                                <input type="hidden" id="selectSpace" name="selected_amount" value="">
+                                <input type="hidden" class="selectSpace" name="selected_amount" value="">
                                 <br>
                                 <button type="submit" class="btn btn-success">Xác nhận thanh toán</button>
                             </div>
                         </form>
-                        {{-- <div class="right_infor_pay"> <img class="qr_payment"
-                                src="{{ asset('img/QR_Payment/Qr_momo.jpg') }}" alt=""></div> --}}
-
                     </div>
+
                     <div class="bank_pay" id="bank_pay">
                         <div class="left_infor_pay">
-                            <h4 id="text-link-header">Chuyển khoản qua ngân hàng</h4>
-                            <p>Thông tin tài khoản: DINH DUC ANH</p>
-                            <p>Số tài khoản: <span>1020412269</span></p>
-                            <p>Nội dung chuyển tiền : <span
-                                    style="color: red">Nap{{ $user->id }}{{ $user->username }}</span></p>
+                            <form action="{{ route('momoPay') }}" method="post">
+                                @csrf
+                                <h4 id="text-link-header">Chuyển khoản bằng Momo</h4>
+                                <p>Thông tin tài khoản: DINH DUC ANH</p>
+                                <input name="ctk" type="hidden" value="DINH DUC ANH">
+                                <p>Số tài khoản: <span>0343564138</span></p>
+                                <input name="stk" type="hidden" value="0343564138">
+                                <p>Nội dung chuyển khoản: <span style="color: red">Nap_{{ $user->username }}</span></p>
+                                <input name="ndck" type="hidden" value="Nap_{{ $user->username }}">
+                                <p>Chọn mệnh giá nạp</p>
+                                <select class="form-select stn" name="st">
+                                    <option selected value="10000">10.000</option>
+                                    <option value="20000">20.000</option>
+                                    <option value="40000">40.000</option>
+                                    <option value="80000">80.000</option>
+                                    <option value="100000">100.000</option>
+                                    <option value="300000">300.000</option>
+                                    <option value="500000">500.000</option>
+                                    <option value="1000000">1.000.000</option>
+                                    <option value="2000000">2.000.000</option>
+                                    <option value="5000000">5.000.000</option>
+                                    <option value="10000000">10.000.000</option>
+                                </select>
+                                <input type="hidden" class="selectSpace" name="selected_amount" value="">
+                                <br>
+                                <button type="submit" class="btn btn-success">Xác nhận thanh
+                                    toán</button>
+                                <br>
+                            </form>
                         </div>
-                        <div class="right_infor_pay"> <img class="qr_payment"
-                                src="{{ asset('img/QR_Payment/qr_bank.jpg') }}" alt=""></div>
                     </div>
                     <div class="tc_pay" id="tc_pay">
                         <div class="left_infor_pay">
